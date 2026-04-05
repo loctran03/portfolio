@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trần Nguyễn Tấn Lộc | SEO Specialist & AI Automation</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        light: '#FFFFFF',
+                        surface: '#F8FAFC',
+                        accent: {
+                            DEFAULT: '#007BFF',
+                            light: '#00E5FF'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #374151;
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #007BFF, #00A3FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow-effect {
+            transition: all 0.3s ease;
+        }
+        .glow-effect:hover {
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.12);
+            border-color: rgba(0, 123, 255, 0.3);
+            transform: translateY(-5px);
+        }
+        @keyframes floatCTA {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float-cta {
+            animation: floatCTA 4s ease-in-out infinite;
+        }
+        
+        /* Hiệu ứng trượt vòng lặp (Marquee) cho Công cụ */
+        .marquee-container {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+        .marquee-container:hover {
+            animation-play-state: paused;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* Pattern nền chấm bi cho section dự án khác */
+        .bg-dots-pattern {
+            background-image: radial-gradient(#e5e7eb 2px, transparent 2px);
+            background-size: 30px 30px;
+        }
+
+        /* Hiệu ứng Shine cho Subtitle */
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+        .animate-shine {
+            background: linear-gradient(to right, #4b5563 20%, #007BFF 40%, #00E5FF 60%, #4b5563 80%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+        }
+
+        /* Hiệu ứng vòng tròn lan ra (Ripple) cho Avatar */
+        @keyframes avatarRipple {
+            0% {
+                transform: scale(0.95);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1.4);
+                opacity: 0;
+            }
+        }
+        .animate-avatar-ripple {
+            animation: avatarRipple 2.5s cubic-bezier(0.0, 0, 0.2, 1) infinite;
+        }
+        .animation-delay-1000 { animation-delay: 0.8s; }
+        .animation-delay-2000 { animation-delay: 1.6s; }
+    </style>
+</head>
+<body class="antialiased selection:bg-accent selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-2xl font-bold tracking-tighter text-gray-900">
+                        Tấn <span class="text-accent">Lộc.</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-gray-600 hover:text-accent transition-colors px-3 py-2 text-sm font-medium">Trang chủ</a>
+                        <a href="#about" class="text-gray-600 hover:text-accent transition-colors px-3 py-2 text-sm font-medium">Chuyên môn</a>
+                        <a href="#projects" class="text-gray-600 hover:text-accent transition-colors px-3 py-2 text-sm font-medium">Case Studies</a>
+                        <a href="#experience" class="text-gray-600 hover:text-accent transition-colors px-3 py-2 text-sm font-medium">Kinh nghiệm</a>
+                        <a href="#contact" class="bg-accent/10 text-accent border border-accent/20 hover:bg-accent hover:text-white px-4 py-2 rounded-full text-sm font-medium transition-all duration-300">Liên hệ ngay</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-accent focus:outline-none">
+                        <i class="ph ph-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-accent hover:bg-gray-50 rounded-md">Trang chủ</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-accent hover:bg-gray-50 rounded-md">Chuyên môn</a>
+                <a href="#projects" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-accent hover:bg-gray-50 rounded-md">Case Studies</a>
+                <a href="#experience" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-accent hover:bg-gray-50 rounded-md">Kinh nghiệm</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-accent hover:bg-blue-50 rounded-md">Liên hệ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section 1: Hero -->
+    <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="flex flex-col-reverse md:flex-row items-center gap-12">
+            <div class="flex-1 text-center md:text-left">
+                <h2 class="text-accent font-semibold tracking-wide uppercase text-sm mb-3">Portfolio Cá Nhân</h2>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-tight mb-4 tracking-tight">
+                    Trần Nguyễn <br/> <span class="text-gradient">Tấn Lộc</span>
+                </h1>
+                <p class="text-xl md:text-2xl font-medium mb-6 animate-shine">
+                    SEO Executive | Tối ưu hóa GEO trong kỉ nguyên AI
+                </p>
+                <p class="text-base md:text-lg text-gray-600 mb-8 leading-relaxed max-w-2xl">
+                    Là một SEOer với 2 năm kinh nghiệm thực chiến và xuất thân từ nền tảng Thương mại điện tử, tôi định vị SEO là phễu Marketing sinh lời. Nắm bắt kỷ nguyên AI, tôi ứng dụng song song <span class="text-gray-900 font-semibold">Tối ưu hóa GEO</span> (Generative Engine Optimization) và <span class="text-gray-900 font-semibold">CRO</span> (tỷ lệ chuyển đổi) với một mục tiêu duy nhất: Biến thứ hạng và Traffic thành <span class="text-accent font-bold">doanh thu</span>.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+                    <a href="#projects" class="w-full sm:w-auto px-8 py-3.5 bg-accent hover:bg-blue-600 text-white font-semibold rounded-lg shadow-[0_8px_20px_rgba(0,123,255,0.25)] transition-all duration-300 text-center flex items-center justify-center gap-2">
+                        Xem Case Study <i class="ph ph-arrow-right font-bold"></i>
+                    </a>
+                    <a href="https://drive.google.com/file/d/1muPOg_pfoWJFTcJSl9DMsfLtLS-8t-gE/view?usp=sharing" target="_blank" class="w-full sm:w-auto px-8 py-3.5 bg-transparent border border-gray-300 hover:border-accent hover:text-accent text-gray-700 font-semibold rounded-lg transition-all duration-300 text-center">
+                        Xem / Tải CV
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Profile Picture -->
+            <div class="flex-1 flex justify-center md:justify-end">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                    <!-- Hiệu ứng vòng tròn lan ra -->
+                    <div class="absolute inset-0 rounded-full border-[3px] border-accent animate-avatar-ripple"></div>
+                    <div class="absolute inset-0 rounded-full border-[3px] border-accent animate-avatar-ripple animation-delay-1000"></div>
+                    <div class="absolute inset-0 rounded-full border-[3px] border-accent animate-avatar-ripple animation-delay-2000"></div>
+                    
+                    <!-- Avatar chính -->
+                    <div class="absolute inset-0 rounded-full p-2 bg-gradient-to-tr from-accent to-blue-200 shadow-[0_15px_40px_rgba(0,123,255,0.15)] z-10">
+                        <div class="w-full h-full bg-surface rounded-full overflow-hidden border-4 border-white relative">
+                            <img src="https://i.ibb.co/JjcMmcz7/image.jpg" alt="Trần Nguyễn Tấn Lộc" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-blue-500/5 mix-blend-overlay"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- USP Stats Bar -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 bg-white border border-gray-100 rounded-3xl p-8 md:p-10 shadow-[0_15px_50px_rgba(0,123,255,0.06)] mt-16 md:mt-24 relative z-10">
+            <div class="text-center md:text-left md:border-r border-gray-200 px-4">
+                <div class="flex items-center justify-center md:justify-start gap-2 mb-2">
+                    <i class="ph-fill ph-briefcase text-3xl text-accent"></i>
+                    <h3 class="text-4xl font-extrabold text-gray-900">2+</h3>
+                </div>
+                <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Năm Kinh Nghiệm</p>
+            </div>
+            <div class="text-center md:text-left md:border-r border-gray-200 px-4">
+                <div class="flex items-center justify-center md:justify-start gap-2 mb-2">
+                    <i class="ph-fill ph-folder-star text-3xl text-accent"></i>
+                    <h3 class="text-4xl font-extrabold text-gray-900">4+</h3>
+                </div>
+                <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Dự án trực tiếp</p>
+            </div>
+            <div class="text-center md:text-left px-4">
+                <div class="flex items-center justify-center md:justify-start gap-2 mb-2">
+                    <i class="ph-fill ph-trend-up text-3xl text-accent"></i>
+                    <h3 class="text-4xl font-extrabold text-gray-900">2.2K<span class="text-accent text-3xl">%</span></h3>
+                </div>
+                <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Tăng Trưởng Traffic</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: About & Expertise -->
+    <section id="about" class="py-20 bg-surface border-y border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Chuyên môn & Năng lực</h2>
+                <div class="w-20 h-1 bg-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6 flex items-center gap-2">
+                        <i class="ph ph-target text-accent text-3xl"></i> Kỹ năng cốt lõi
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm hover:border-accent/50 transition-colors">
+                            <h4 class="text-gray-800 font-medium mb-2">SEO Tổng thể & Technical SEO</h4>
+                            <div class="w-full bg-gray-100 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 90%"></div></div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm hover:border-accent/50 transition-colors">
+                            <h4 class="text-gray-800 font-medium mb-2">Tối ưu hóa GEO & Topical Authority</h4>
+                            <div class="w-full bg-gray-100 rounded-full h-2"><div class="bg-accent h-2 rounded-full opacity-80" style="width: 85%"></div></div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm hover:border-accent/50 transition-colors">
+                            <h4 class="text-gray-800 font-medium mb-2">Tự động hóa Workflow</h4>
+                            <div class="w-full bg-gray-100 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 80%"></div></div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm hover:border-accent/50 transition-colors">
+                            <h4 class="text-gray-800 font-medium mb-2">Content SEO & Onpage</h4>
+                            <div class="w-full bg-gray-100 rounded-full h-2"><div class="bg-accent h-2 rounded-full opacity-90" style="width: 90%"></div></div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm hover:border-accent/50 transition-colors">
+                            <h4 class="text-gray-800 font-medium mb-2">Xây dựng Entity & Offpage</h4>
+                            <div class="w-full bg-gray-100 rounded-full h-2"><div class="bg-accent h-2 rounded-full opacity-85" style="width: 85%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6 flex items-center gap-2">
+                        <i class="ph ph-graduation-cap text-accent text-3xl"></i> Học vấn & Chứng chỉ
+                    </h3>
+                    <div class="space-y-5">
+                        <div class="flex gap-4">
+                            <div class="mt-1"><i class="ph-fill ph-check-circle text-accent text-xl"></i></div>
+                            <div>
+                                <h4 class="text-gray-900 font-medium text-lg">Đại học Công nghiệp TP.HCM</h4>
+                                <p class="text-gray-600 text-sm mt-1">Chuyên ngành Thương mại điện tử (2021 - 2025) | Tốt nghiệp loại Khá</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="mt-1"><i class="ph-fill ph-certificate text-accent text-xl"></i></div>
+                            <div class="flex-1">
+                                <h4 class="text-gray-900 font-medium text-lg flex items-center gap-3 flex-wrap">
+                                    Fundamentals of Digital Marketing
+                                    <a href="https://drive.google.com/file/d/1x1UwcJpFQCar70NPNvYjTuyCimUPUxCB/view?usp=sharing" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-accent bg-accent/10 hover:bg-accent hover:text-white px-3 py-1 rounded-md transition-colors border border-accent/20">
+                                        <i class="ph-bold ph-eye text-sm"></i> Xem chứng chỉ
+                                    </a>
+                                </h4>
+                                <p class="text-gray-600 text-sm mt-1">Cấp bởi Google</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="mt-1"><i class="ph-fill ph-certificate text-accent text-xl"></i></div>
+                            <div class="flex-1">
+                                <h4 class="text-gray-900 font-medium text-lg flex items-center gap-3 flex-wrap">
+                                    HTML & CSS
+                                    <a href="https://drive.google.com/file/d/12eKXJcRaLT0PuYUcmXHVbsSwrVB4D3iE/view?usp=sharing" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-accent bg-accent/10 hover:bg-accent hover:text-white px-3 py-1 rounded-md transition-colors border border-accent/20">
+                                        <i class="ph-bold ph-eye text-sm"></i> Xem chứng chỉ
+                                    </a>
+                                </h4>
+                                <p class="text-gray-600 text-sm mt-1">Cấp bởi F8</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Case Studies / Portfolio -->
+    <section id="projects" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Dự án Nổi bật</h2>
+                <p class="text-gray-600">Những case study minh chứng cho năng lực xử lý vấn đề và bứt phá tăng trưởng.</p>
+                <div class="w-20 h-1 bg-accent mx-auto rounded-full mt-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- Project 1: Xưởng Mây Mây -->
+                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full group/card">
+                    <div class="relative h-56 bg-gray-100 w-full overflow-hidden flex-shrink-0">
+                        <img src="https://i.ibb.co/YBmJZrMx/dung-cu-bao-ve-an-toan-dien.png" alt="Xưởng Mây Mây" class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500">
+                    </div>
+
+                    <div class="p-6 md:p-8 flex flex-col flex-grow relative">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-5 group-hover/card:text-accent transition-colors">Xưởng Mây Mây</h3>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center gap-3 text-sm">
+                                <div class="w-9 h-9 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                    <i class="ph-fill ph-tag text-blue-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500 block text-xs font-medium uppercase tracking-wide">Ngách thị trường</span>
+                                    <span class="font-bold text-gray-900">Sản xuất Bao bì / Túi vải</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm">
+                                <div class="w-9 h-9 rounded-full bg-purple-50 flex items-center justify-center flex-shrink-0">
+                                    <i class="ph-fill ph-user-circle text-purple-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500 block text-xs font-medium uppercase tracking-wide">Vai trò</span>
+                                    <span class="font-bold text-gray-900">Lead và triển khai</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm">
+                                <div class="w-9 h-9 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
+                                    <i class="ph-fill ph-calendar-blank text-emerald-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500 block text-xs font-medium uppercase tracking-wide">Thời gian dự án</span>
+                                    <span class="font-bold text-gray-900">T5/2025 - T3/2026</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8 flex-grow">
+                            <p class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2 border-b border-gray-100 pb-2">Mô tả dự án</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Dự án thuộc lĩnh vực sản xuất và in ấn bao bì (túi vải, balo), đối mặt với tình trạng sụt giảm traffic do cấu trúc website lộn xộn, nền tảng Technical yếu kém và đặc biệt là khủng hoảng bất ngờ do bị tấn công mã độc, bơm 'traffic bẩn'. Chiến lược lõi được tôi áp dụng là tái cấu trúc Topical Map kết hợp tối ưu UX/UI để phân tách rõ luồng khách hàng B2B/B2C, triển khai Semantic SEO cùng GEO (Generative Engine Optimization), đồng thời xử lý triệt để vấn đề bảo mật (thiết lập tường lửa, lọc IP spam) và chuẩn hóa Entity để gỡ phạt, khôi phục Trust cho website.
+                            </p>
+                        </div>
+                        
+                        <button onclick="openModal('modal-maymay')" class="mt-auto w-full py-3 bg-white hover:bg-accent text-accent hover:text-white font-bold rounded-xl transition-all duration-300 border-2 border-accent/20 hover:border-accent flex items-center justify-center gap-2 group/btn shadow-sm">
+                            Xem Case Study Chi Tiết <i class="ph-bold ph-arrow-right group-hover/btn:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2: Bảo Vệ Tây Bắc SG -->
+                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full group/card">
+                    <div class="relative h-56 bg-gray-100 w-full overflow-hidden flex-shrink-0">
+                        <img src="https://i.ibb.co/tMzsZgw5/dung-cu-bao-ve-an-toan-dien.png" alt="Bảo Vệ Tây Bắc SG" class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500">
+                    </div>
+
+                    <div class="p-6 md:p-8 flex flex-col flex-grow relative">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-5 group-hover/card:text-accent transition-colors leading-tight">Bảo Vệ Ngày Đêm<br><span class="text-base text-gray-500 font-medium">Tây Bắc Sài Gòn</span></h3>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center gap-3 text-sm">
+                                <div class="w-9 h-9 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                    <i class="ph-fill ph-tag text-blue-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500 block text-xs font-medium uppercase tracking-wide">Ngách thị trường</span>
+                                    <span class="font-bold text-gray-900">Dịch vụ Bảo Vệ (Local)</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm">
+                                <div class="w-9 h-9 rounded-full bg-purple-50 flex items-center justify-center flex-shrink-0">
+                                    <i class="ph-fill ph-user-circle text-purple-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500 block text-xs font-medium uppercase tracking-wide">Vai trò</span>
+                                    <span class="font-bold text-gray-900">Lead và triển khai</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm">
+                                <div class="w-9 h-9 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
+                                    <i class="ph-fill ph-calendar-blank text-emerald-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500 block text-xs font-medium uppercase tracking-wide">Thời gian dự án</span>
+                                    <span class="font-bold text-gray-900">T6/2025 - T3/2026</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8 flex-grow">
+                            <p class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2 border-b border-gray-100 pb-2">Mô tả dự án</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Bảo Vệ Ngày & Đêm - Chi nhánh Tây Bắc Sài Gòn, trực thuộc Công ty Cổ phần Thương mại Dịch vụ Bảo vệ Ngày & Đêm. Dự án thuộc lĩnh vực dịch vụ bảo vệ, đối mặt với thách thức lớn khi website mới hoàn toàn, domain chưa có sức mạnh và phải cạnh tranh gay gắt với các đối thủ lâu năm tại thị trường Local. Chiến lược lõi được áp dụng là quy hoạch lại Topical Map để mở rộng phễu người dùng, triển khai Semantic SEO kết hợp mô hình Internal Link 'Contextual Bridge' (Cầu nối ngữ cảnh), đồng thời đẩy mạnh Local SEO và thiết lập Entity toàn diện để nhanh chóng xây dựng độ Trust và bứt phá thứ hạng.
+                            </p>
+                        </div>
+                        
+                        <button onclick="openModal('modal-taybac')" class="mt-auto w-full py-3 bg-white hover:bg-accent text-accent hover:text-white font-bold rounded-xl transition-all duration-300 border-2 border-accent/20 hover:border-accent flex items-center justify-center gap-2 group/btn shadow-sm">
+                            Xem Case Study Chi Tiết <i class="ph-bold ph-arrow-right group-hover/btn:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3: Bảo Vệ Ngày Đêm Toàn Quốc -->
+                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full group/card">
+                    <div class="relative h-56 bg-gray-100 w-full overflow-hidden flex-shrink-0">
+                        <img src="https://i.ibb.co/N6rj15gz/dung-cu-bao-ve-an-toan-dien.png" alt="Bảo Vệ Ngày Đêm" class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500">
+                    </div>
+
+                    <div class="p-6 md:p-8 flex flex-col flex-grow relative">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-5 group-hover/card:text-accent transition-colors">Bảo Vệ Ngày & Đêm</h3>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center gap-3 text-sm">
+                                <div class="w-9 h-9 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                    <i class="ph-fill ph-tag text-blue-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500 block text-xs font-medium uppercase tracking-wide">Ngách thị trường</span>
+                                    <span class="font-bold text-gray-900">Dịch vụ Bảo Vệ</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm">
+                                <div class="w-9 h-9 rounded-full bg-purple-50 flex items-center justify-center flex-shrink-0">
+                                    <i class="ph-fill ph-user-circle text-purple-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500 block text-xs font-medium uppercase tracking-wide">Vai trò</span>
+                                    <span class="font-bold text-gray-900">Triển khai trực tiếp</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm">
+                                <div class="w-9 h-9 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
+                                    <i class="ph-fill ph-calendar-blank text-emerald-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500 block text-xs font-medium uppercase tracking-wide">Thời gian dự án</span>
+                                    <span class="font-bold text-gray-900">T7/2025 - T3/2026</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8 flex-grow">
+                            <p class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2 border-b border-gray-100 pb-2">Mô tả dự án</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Bảo Vệ Ngày & Đêm là một thương hiệu lâu năm và uy tín trong ngành dịch vụ an ninh. Mục tiêu của dự án là giữ vững thứ hạng từ khóa hiện có và gia tăng organic traffic một cách bền vững. Chiến lược tập trung xử lý cannibalization, làm mới và mở rộng nội dung theo Topical Map nhằm củng cố độ phủ chủ đề và nâng cao E-E-A-T, tối ưu Technical & UX/UI, đồng thời xây dựng phễu chuyển đổi từ Blog → trang dịch vụ. Kết hợp triển khai Entity, Backlink chất lượng và tối ưu GEO nhằm đón đầu xu hướng tìm kiếm AI.
+                            </p>
+                        </div>
+                        
+                        <button onclick="openModal('modal-bvnvd')" class="mt-auto w-full py-3 bg-white hover:bg-accent text-accent hover:text-white font-bold rounded-xl transition-all duration-300 border-2 border-accent/20 hover:border-accent flex items-center justify-center gap-2 group/btn shadow-sm">
+                            Xem Case Study Chi Tiết <i class="ph-bold ph-arrow-right group-hover/btn:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CÁC DỰ ÁN KHÁC TỪNG THAM GIA -->
+            <div class="mt-20 max-w-4xl mx-auto">
+                <div class="bg-white rounded-[2rem] border border-gray-200 p-10 md:p-14 relative overflow-hidden shadow-sm">
+                    <!-- Background pattern -->
+                    <div class="absolute inset-0 bg-dots-pattern opacity-60 pointer-events-none"></div>
+                    <div class="absolute inset-0 bg-white/40 pointer-events-none"></div>
+                    
+                    <div class="relative z-10">
+                        <h3 class="text-center text-xl font-bold text-gray-900 tracking-wider mb-10">CÁC DỰ ÁN KHÁC TỪNG THAM GIA</h3>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-12 md:gap-32">
+                            <!-- Project 1 -->
+                            <div class="flex flex-col items-center gap-5 group">
+                                
+                                <img src="https://i.ibb.co/RkDggchX/dung-cu-bao-ve-an-toan-dien-2.png" alt="" class="h-12 md:h-14 object-contain group-hover:scale-105 transition-transform duration-300">
+                                <div class="px-6 py-2 bg-gray-50 border border-gray-200 rounded-full text-sm font-semibold text-gray-600 shadow-sm">
+                                    03/2025 - 04/2025
+                                </div>
+                            </div>
+
+                            <!-- Project 2 -->
+                            <div class="flex flex-col items-center gap-5 group">
+                                
+                                <img src="https://i.ibb.co/8nrbTzy4/dung-cu-bao-ve-an-toan-dien-3.png" alt="" class="h-12 md:h-14 object-contain group-hover:scale-105 transition-transform duration-300">
+                                <div class="px-6 py-2 bg-gray-50 border border-gray-200 rounded-full text-sm font-semibold text-gray-600 shadow-sm">
+                                    02/2025 - 05/2025
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section: CÔNG CỤ & NỀN TẢNG (Tools Loop) -->
+    <section class="py-16 bg-white overflow-hidden border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Công cụ & Nền tảng</h2>
+            <p class="text-gray-600">Thành thạo hệ sinh thái công cụ hỗ trợ tối ưu dữ liệu SEO và Tự động hóa nội dung</p>
+            <div class="w-20 h-1 bg-accent mx-auto rounded-full mt-6"></div>
+        </div>
+
+        <div class="relative w-full overflow-hidden flex">
+            <!-- Fade gradients 2 bên lề -->
+            <div class="absolute left-0 top-0 w-20 md:w-40 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 w-20 md:w-40 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+            
+            <div class="marquee-container py-4 flex gap-6 px-3">
+                <!-- Group 1 -->
+                <div class="flex gap-6 items-center flex-shrink-0">
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=canva.com&sz=128" alt="Canva" class="h-8 w-8 object-contain">
+                        <span>Canva</span>
+                    </div>
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=figma.com&sz=128" alt="Figma" class="h-8 w-8 object-contain">
+                        <span>Figma</span>
+                    </div>
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=spyserp.com&sz=128" alt="SpySERP" class="h-8 w-8 object-contain">
+                        <span>SpySERP</span>
+                    </div>
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=n8n.io&sz=128" alt="n8n" class="h-8 w-8 object-contain">
+                        <span>n8n</span>
+                    </div>
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=screamingfrog.co.uk&sz=128" alt="Screaming Frog" class="h-8 w-8 object-contain rounded-md">
+                        <span>Screaming Frog</span>
+                    </div>
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=analytics.google.com&sz=128" alt="Google Analytics" class="h-8 w-8 object-contain">
+                        <span>Google Analytics</span>
+                    </div>
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=search.google.com&sz=128" alt="Search Console" class="h-8 w-8 object-contain">
+                        <span>Search Console</span>
+                    </div>
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=semrush.com&sz=128" alt="SEMrush" class="h-8 w-8 object-contain">
+                        <span>SEMrush</span>
+                    </div>
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=ahrefs.com&sz=128" alt="Ahrefs" class="h-8 w-8 object-contain">
+                        <span>Ahrefs</span>
+                    </div>
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=wordpress.org&sz=128" alt="WordPress" class="h-8 w-8 object-contain">
+                        <span>WordPress</span>
+                    </div>
+                </div>
+                
+                <!-- Group 2 (Duplicate để loop mượt) -->
+                <div class="flex gap-6 items-center flex-shrink-0">
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=canva.com&sz=128" alt="Canva" class="h-8 w-8 object-contain">
+                        <span>Canva</span>
+                    </div>
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=figma.com&sz=128" alt="Figma" class="h-8 w-8 object-contain">
+                        <span>Figma</span>
+                    </div>
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=spyserp.com&sz=128" alt="SpySERP" class="h-8 w-8 object-contain">
+                        <span>SpySERP</span>
+                    </div>
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=n8n.io&sz=128" alt="n8n" class="h-8 w-8 object-contain">
+                        <span>n8n</span>
+                    </div>
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=screamingfrog.co.uk&sz=128" alt="Screaming Frog" class="h-8 w-8 object-contain rounded-md">
+                        <span>Screaming Frog</span>
+                    </div>
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=analytics.google.com&sz=128" alt="Google Analytics" class="h-8 w-8 object-contain">
+                        <span>Google Analytics</span>
+                    </div>
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=search.google.com&sz=128" alt="Search Console" class="h-8 w-8 object-contain">
+                        <span>Search Console</span>
+                    </div>
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=semrush.com&sz=128" alt="SEMrush" class="h-8 w-8 object-contain">
+                        <span>SEMrush</span>
+                    </div>
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=ahrefs.com&sz=128" alt="Ahrefs" class="h-8 w-8 object-contain">
+                        <span>Ahrefs</span>
+                    </div>
+                    <div class="flex items-center gap-3 px-6 py-4 bg-surface border border-gray-200 hover:border-accent/30 rounded-2xl shadow-sm text-lg font-bold text-gray-700 hover:text-accent hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-default">
+                        <img src="https://s2.googleusercontent.com/s2/favicons?domain=wordpress.org&sz=128" alt="WordPress" class="h-8 w-8 object-contain">
+                        <span>WordPress</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Professional Experience -->
+    <section id="experience" class="py-20 bg-surface border-y border-gray-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Kinh nghiệm thực chiến</h2>
+                <div class="w-20 h-1 bg-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="relative border-l-2 border-gray-200 ml-3 md:ml-0">
+                
+                <!-- Job 1 -->
+                <div class="mb-12 ml-8 relative group">
+                    <span class="absolute -left-[41px] top-1 h-5 w-5 rounded-full bg-white border-2 border-accent group-hover:bg-accent transition-colors duration-300 shadow-[0_0_10px_rgba(0,123,255,0.3)]"></span>
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                        <h3 class="flex items-center text-xl font-bold text-gray-900">SEO EXECUTIVE <span class="mx-2 text-gray-400">|</span> <span class="text-accent">Công ty TNHH TMDV GTV SEO</span></h3>
+                        <time class="text-sm font-medium leading-none text-gray-500 mt-2 sm:mt-0 bg-white px-3 py-1 rounded-full border border-gray-200 shadow-sm">02/2025 - 03/2026</time>
+                    </div>
+                    <ul class="mt-4 space-y-3 text-gray-600">
+                        <li class="flex items-start gap-2">
+                            <i class="ph-bold ph-caret-right text-accent mt-1 flex-shrink-0"></i>
+                            <span>Xây dựng và triển khai kế hoạch SEO tổng thể cho 3 dự án website (thương mại điện tử và dịch vụ), giúp tăng <strong class="text-gray-900">120-200% organic traffic</strong> sau 6-8 tháng.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="ph-bold ph-caret-right text-accent mt-1 flex-shrink-0"></i>
+                            <span>Nghiên cứu và triển khai SEO cho 350+ từ khóa, đạt <strong class="text-gray-900">85% từ khóa vào Top 5</strong> theo KPI đề ra.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="ph-bold ph-caret-right text-accent mt-1 flex-shrink-0"></i>
+                            <span>Áp dụng phương pháp Topical Authority, xây dựng hệ thống Content SEO theo Topical Map, giúp mở rộng độ phủ chủ đề và tăng khả năng hiển thị trên công cụ tìm kiếm.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="ph-bold ph-caret-right text-accent mt-1 flex-shrink-0"></i>
+                            <span>Tối ưu <strong class="text-gray-900">GEO (Generative Engine Optimization)</strong>, xây dựng nội dung theo hướng entity-based, structured data và semantic clarity, giúp website được trích dẫn trong các kết quả AI.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="ph-bold ph-caret-right text-accent mt-1 flex-shrink-0"></i>
+                            <span>Tối ưu Technical SEO và cấu trúc website, cải thiện tốc độ index và giảm lỗi crawl, giúp tăng tỷ lệ index bài viết.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="ph-bold ph-caret-right text-accent mt-1 flex-shrink-0"></i>
+                            <span>Triển khai Entity SEO (Google Stack, Social Stack, Schema) và hệ thống backlink Offsite, góp phần tăng độ trust domain và cải thiện thứ hạng từ khóa.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="ph-bold ph-caret-right text-accent mt-1 flex-shrink-0"></i>
+                            <span>Ứng dụng AI và workflow automation (N8N, Make) trong quy trình sản xuất nội dung, giúp giảm khoảng <strong class="text-gray-900">40% thời gian</strong> triển khai content SEO.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="mb-12 ml-8 relative group">
+                    <span class="absolute -left-[41px] top-1 h-5 w-5 rounded-full bg-white border-2 border-gray-300 group-hover:border-accent transition-colors duration-300"></span>
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                        <h3 class="flex items-center text-xl font-bold text-gray-900">Thực tập sinh SEO <span class="mx-2 text-gray-400">|</span> <span class="text-gray-700">CÔNG TY CỔ PHẦN XHEROZONE</span></h3>
+                        <time class="text-sm font-medium leading-none text-gray-500 mt-2 sm:mt-0 bg-white px-3 py-1 rounded-full border border-gray-200 shadow-sm">06/2024 - 12/2024</time>
+                    </div>
+                    <ul class="mt-4 space-y-3 text-gray-600">
+                        <li class="flex items-start gap-2">
+                            <i class="ph-bold ph-caret-right text-gray-400 mt-1 flex-shrink-0"></i>
+                            <span>Nghiên cứu từ khóa, xây dựng layout content, đăng bài blog và sản phẩm chuẩn SEO. (8 bài/tuần)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="ph-bold ph-caret-right text-gray-400 mt-1 flex-shrink-0"></i>
+                            <span>Thực hiện SEO onpage, offpage và tối ưu hình ảnh.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="ph-bold ph-caret-right text-gray-400 mt-1 flex-shrink-0"></i>
+                            <span>Tối ưu technical SEO, xây dựng entity và triển khai chiến lược link building.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="ph-bold ph-caret-right text-gray-400 mt-1 flex-shrink-0"></i>
+                            <span>Sử dụng các công cụ Semrush, Google Search Console, Google Analytics để đánh giá và tối ưu hiệu quả SEO.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="ml-8 relative group">
+                    <span class="absolute -left-[41px] top-1 h-5 w-5 rounded-full bg-white border-2 border-gray-300 group-hover:border-accent transition-colors duration-300"></span>
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                        <h3 class="flex items-center text-xl font-bold text-gray-900">Digital Marketing Intern <span class="mx-2 text-gray-400">|</span> <span class="text-gray-700">Công Ty TNHH NETGROUP</span></h3>
+                        <time class="text-sm font-medium leading-none text-gray-500 mt-2 sm:mt-0 bg-white px-3 py-1 rounded-full border border-gray-200 shadow-sm">01/2024 - 04/2024</time>
+                    </div>
+                    <ul class="mt-4 space-y-3 text-gray-600">
+                        <li class="flex items-start gap-2">
+                            <i class="ph-bold ph-caret-right text-gray-400 mt-1 flex-shrink-0"></i>
+                            <span>Viết content chuẩn SEO cho các bài viết về sản phẩm/blog của công ty.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="ph-bold ph-caret-right text-gray-400 mt-1 flex-shrink-0"></i>
+                            <span>Đi Internal link và External Link, gắn đúng Anchor Text, tối ưu hóa Rank Math.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="ph-bold ph-caret-right text-gray-400 mt-1 flex-shrink-0"></i>
+                            <span>Chèn watermark, chuẩn hóa hình ảnh.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="ph-bold ph-caret-right text-gray-400 mt-1 flex-shrink-0"></i>
+                            <span>Đăng backlink cho công ty.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="ph-bold ph-caret-right text-gray-400 mt-1 flex-shrink-0"></i>
+                            <span>Đăng seeding cho công ty.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Contact -->
+    <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <div class="bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-3xl p-8 md:p-12 shadow-[0_20px_50px_rgba(0,123,255,0.08)] relative overflow-hidden">
+            <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent/5 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-accent/5 rounded-full blur-3xl"></div>
+            
+            <div class="relative z-10 text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">Hướng tới sự phát triển <span class="text-gradient">bền vững</span> cùng doanh nghiệp!</h2>
+                <p class="text-gray-600 mb-10 text-lg">Tôi luôn mở lòng với các cơ hội nghề nghiệp mới, nơi tôi có thể đóng góp năng lực chuyên môn để sát cánh cùng sự phát triển lớn mạnh của doanh nghiệp. Hãy kết nối để trao đổi sâu hơn!</p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-10">
+                    <a href="mailto:loct2k3@gmail.com" class="flex items-center gap-4 text-gray-700 hover:text-accent transition-all duration-300 bg-white px-8 py-4 rounded-full shadow-sm border border-gray-100 hover:border-accent/30 hover:-translate-y-1">
+                        <div class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center">
+                            <i class="ph-fill ph-envelope-simple text-xl text-accent"></i>
+                        </div>
+                        <span class="font-bold text-lg">loct2k3@gmail.com</span>
+                    </a>
+                    <a href="tel:0899490900" class="flex items-center gap-4 text-gray-700 hover:text-accent transition-all duration-300 bg-white px-8 py-4 rounded-full shadow-sm border border-gray-100 hover:border-accent/30 hover:-translate-y-1">
+                        <div class="w-10 h-10 bg-emerald-50 rounded-full flex items-center justify-center">
+                            <i class="ph-fill ph-phone text-xl text-emerald-500"></i>
+                        </div>
+                        <span class="font-bold text-lg">0899 490 900</span>
+                    </a>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8 border-t border-gray-200/60">
+                    <div class="flex items-center gap-2 text-gray-600 bg-white/50 px-5 py-2.5 rounded-full border border-gray-100">
+                        <i class="ph-fill ph-map-pin text-xl text-accent"></i>
+                        <span class="font-medium text-sm">Thủ Đức, TP.Hồ Chí Minh</span>
+                    </div>
+                    <div class="hidden sm:block w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+                    <a href="https://www.linkedin.com/in/tran-nguyen-tan-loc/" target="_blank" class="flex items-center gap-2 text-gray-600 hover:text-[#0077b5] transition-colors font-medium bg-white/50 px-5 py-2.5 rounded-full border border-gray-100 hover:border-[#0077b5]/30">
+                        <i class="ph-fill ph-linkedin-logo text-2xl text-[#0077b5]"></i>
+                        <span class="text-sm">Kết nối LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 py-8 text-center bg-surface relative z-10">
+        <p class="text-gray-500 text-sm">
+            &copy; 2026 Trần Nguyễn Tấn Lộc. Tối ưu SEO & AI Workflow.
+        </p>
+    </footer>
+
+    <!-- MODALS SECTION CHUẨN (KHÔNG TRÙNG LẶP) -->
+    
+    <!-- Modal 1: Xưởng Mây Mây -->
+    <div id="modal-maymay" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-gray-900/80 backdrop-blur-sm modal-backdrop" onclick="closeModal('modal-maymay')"></div>
+        <div class="modal-content bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden relative z-10 shadow-2xl flex flex-col transform scale-95 transition-transform duration-300">
+            <div class="flex justify-between items-center p-5 md:p-6 border-b border-gray-100 bg-white/95 backdrop-blur z-20">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900">Chi tiết dự án: Xưởng Mây Mây</h3>
+                    <p class="text-sm text-gray-500 mt-1">Sản xuất Bao bì / Túi vải • Lead và triển khai</p>
+                </div>
+                <button onclick="closeModal('modal-maymay')" class="text-gray-500 hover:text-red-500 transition-colors bg-gray-100 hover:bg-red-50 p-2.5 rounded-full relative z-50">
+                    <i class="ph-bold ph-x text-xl pointer-events-none"></i>
+                </button>
+            </div>
+            
+            <div class="overflow-y-auto p-5 md:p-8 space-y-8">
+                <!-- Slide hình ảnh -->
+                <div class="slider-container relative rounded-xl overflow-hidden h-64 md:h-[400px] bg-gray-100 group flex-shrink-0">
+                    <!-- Slide 1 -->
+                    <div class="slide absolute inset-0 transition-opacity duration-500 ease-in-out opacity-100 z-10">
+                        <img src="https://i.ibb.co/ym8DpS9X/z7693063795355-f02e765a2b24946582e93e7a00e743fd.jpg" alt="Slide 1" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 pb-10 text-center">
+                            <p class="text-white font-medium text-sm">Biểu đồ tăng trưởng bộ từ khóa duy trì</p>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="slide absolute inset-0 transition-opacity duration-500 ease-in-out opacity-0 z-0">
+                        <img src="https://i.ibb.co/FL4dmWj0/z7693071416806-e5c3bc78031afec5917f5060aefa6313.jpg" alt="Slide 2" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 pb-10 text-center">
+                            <p class="text-white font-medium text-sm">Biểu đồ tăng trưởng bộ từ khóa thúc đẩy</p>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="slide absolute inset-0 transition-opacity duration-500 ease-in-out opacity-0 z-0">
+                        <img src="https://i.ibb.co/QvsLrmj0/Picture2.png" alt="Slide 3" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 pb-10 text-center">
+                            <p class="text-white font-medium text-sm">Web bị bắn lượng lớn traffic ảo liên tục</p>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="slide absolute inset-0 transition-opacity duration-500 ease-in-out opacity-0 z-0">
+                        <img src="https://i.ibb.co/67ZR9L3M/z7693088326762-c312753f73a3f78d843f067753519e02.jpg" alt="Slide 4" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 pb-10 text-center">
+                            <p class="text-white font-medium text-sm">Thứ hạng từ khóa hiển thị vị trí cao trên kết quả tìm kiếm</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Nút Điều Hướng -->
+                    <button class="prev-btn absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 hover:bg-accent text-white rounded-full flex items-center justify-center backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 z-20">
+                        <i class="ph-bold ph-caret-left text-xl pointer-events-none"></i>
+                    </button>
+                    <button class="next-btn absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 hover:bg-accent text-white rounded-full flex items-center justify-center backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 z-20">
+                        <i class="ph-bold ph-caret-right text-xl pointer-events-none"></i>
+                    </button>
+                </div>
+
+                <div class="space-y-10">
+                    <!-- 1. Bối cảnh & Mục tiêu -->
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">1. Bối cảnh & Mục tiêu dự án</h4>
+                        <div class="bg-blue-50 border-l-4 border-accent p-5 rounded-r-lg mb-6">
+                            <p class="text-gray-700 leading-relaxed">
+                                <strong>Xưởng Mây Mây</strong> là một trong những xưởng sản xuất dẫn đầu về sản phẩm túi vải canvas, túi không dệt, túi tote và balo. Thương hiệu hướng đến mục tiêu mang đến cho khách hàng bao bì chất lượng nhất với thông điệp: <em>"Giá tại xưởng - In theo yêu cầu - Giao hàng nhanh"</em>.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="bg-white border border-gray-200 p-4 rounded-xl text-center shadow-sm">
+                                <i class="ph-fill ph-key text-2xl text-accent mb-2"></i>
+                                <p class="text-2xl font-bold text-gray-900">180</p>
+                                <p class="text-xs text-gray-500 uppercase mt-1 font-medium">Từ khóa triển khai</p>
+                            </div>
+                            <div class="bg-white border border-gray-200 p-4 rounded-xl text-center shadow-sm">
+                                <i class="ph-fill ph-target text-2xl text-accent mb-2"></i>
+                                <p class="text-2xl font-bold text-gray-900">75%</p>
+                                <p class="text-xs text-gray-500 uppercase mt-1 font-medium">KPI Top 5 (Duy trì)</p>
+                            </div>
+                            <div class="bg-white border border-gray-200 p-4 rounded-xl text-center shadow-sm">
+                                <i class="ph-fill ph-users text-2xl text-accent mb-2"></i>
+                                <p class="text-2xl font-bold text-gray-900">2.850</p>
+                                <p class="text-xs text-gray-500 uppercase mt-1 font-medium">Organic Users/Tháng</p>
+                            </div>
+                            <div class="bg-white border border-gray-200 p-4 rounded-xl text-center shadow-sm">
+                                <i class="ph-fill ph-calendar text-2xl text-accent mb-2"></i>
+                                <p class="text-2xl font-bold text-gray-900">10</p>
+                                <p class="text-xs text-gray-500 uppercase mt-1 font-medium">Tháng triển khai</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Hiện trạng -->
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">2. Hiện trạng Website</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
+                            <div class="flex gap-3 items-start">
+                                <i class="ph-fill ph-warning-circle text-red-500 text-xl mt-0.5"></i>
+                                <div><strong class="text-gray-900 block mb-1">Traffic sụt giảm:</strong><p class="text-gray-600 text-sm">Website có nền tảng traffic từ trước nhưng đang bị chững lại và đi xuống.</p></div>
+                            </div>
+                            <div class="flex gap-3 items-start">
+                                <i class="ph-fill ph-warning-circle text-red-500 text-xl mt-0.5"></i>
+                                <div><strong class="text-gray-900 block mb-1">Technical yếu kém:</strong><p class="text-gray-600 text-sm">Tốc độ tải trang chậm và tồn đọng nhiều lỗi kỹ thuật.</p></div>
+                            </div>
+                            <div class="flex gap-3 items-start">
+                                <i class="ph-fill ph-warning-circle text-red-500 text-xl mt-0.5"></i>
+                                <div><strong class="text-gray-900 block mb-1">Trải nghiệm UX/UI:</strong><p class="text-gray-600 text-sm">Chưa phân tách rõ ràng luồng hành trình của khách mua lẻ (B2C) và khách sỉ (B2B).</p></div>
+                            </div>
+                            <div class="flex gap-3 items-start">
+                                <i class="ph-fill ph-warning-circle text-red-500 text-xl mt-0.5"></i>
+                                <div><strong class="text-gray-900 block mb-1">Cấu trúc lộn xộn:</strong><p class="text-gray-600 text-sm">Danh mục sản phẩm sắp xếp thiếu hợp lý, dễ gây nhầm lẫn.</p></div>
+                            </div>
+                            <div class="flex gap-3 items-start">
+                                <i class="ph-fill ph-warning-circle text-red-500 text-xl mt-0.5"></i>
+                                <div><strong class="text-gray-900 block mb-1">Nội dung kém chất lượng:</strong><p class="text-gray-600 text-sm">Hơn 120 URL rác, nội dung mỏng (Thin content), chưa chuẩn Semantic.</p></div>
+                            </div>
+                            <div class="flex gap-3 items-start">
+                                <i class="ph-fill ph-warning-circle text-red-500 text-xl mt-0.5"></i>
+                                <div><strong class="text-gray-900 block mb-1">Entity mờ nhạt:</strong><p class="text-gray-600 text-sm">Chưa có định danh thương hiệu rõ ràng và uy tín trên Internet.</p></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Giải pháp SEO -->
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">3. Giải pháp triển khai SEO Tổng thể</h4>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
+                                <h5 class="font-bold text-accent mb-2 flex items-center gap-2 text-lg"><i class="ph-fill ph-tree-structure"></i> Cấu trúc Website & UX/UI</h5>
+                                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1.5">
+                                    <li>Phân loại túi vải theo chất liệu và mục đích sử dụng (Túi Canvas, Không dệt, Balo).</li>
+                                    <li>Xây dựng Topical Map chuẩn chỉnh bao phủ toàn bộ phễu tìm kiếm (từ Blog đến Page dịch vụ).</li>
+                                    <li>Cải thiện trải nghiệm trang Chủ, Danh mục và Sản phẩm. Làm rõ USP: "In theo yêu cầu”, “Giá rẻ”, “Tại TPHCM & Hà Nội”.</li>
+                                    <li>Tối ưu Conversion Path điều hướng luồng traffic từ bài Blog về thẳng trang đặt in dịch vụ.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
+                                <h5 class="font-bold text-accent mb-2 flex items-center gap-2 text-lg"><i class="ph-fill ph-code"></i> Technical & Content SEO</h5>
+                                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1.5">
+                                    <li>Audit kỹ thuật toàn diện, chuẩn hóa hoàn thiện 100% (Core Web Vitals, Mobile-friendly).</li>
+                                    <li>Xử lý triệt để lỗi 404, 301, chặn index các URL rác, điều chỉnh Menu và dứt điểm tình trạng Cannibalization.</li>
+                                    <li>Cập nhật và tối ưu nội dung số lượng lớn (>20% tổng website cùng lúc) tạo tín hiệu ranking mạnh.</li>
+                                    <li>Tối ưu Onpage nâng cao: Semantic Content, NLP format friendly, đảm bảo Information Gain.</li>
+                                    <li><span class="bg-accent/10 text-accent font-semibold px-1 rounded">Triển khai GEO (Generative Engine Optimization)</span> - Tối ưu nội dung hiển thị trên các công cụ AI Search.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
+                                <h5 class="font-bold text-accent mb-2 flex items-center gap-2 text-lg"><i class="ph-fill ph-share-network"></i> Entity, Internal Link & Backlink</h5>
+                                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1.5">
+                                    <li>Audit Entity Onsite. Khởi tạo 100-200 social, web 2.0, local guide và GMB để tăng DR & Trust.</li>
+                                    <li>Cài đặt Schema Product, Blogposting, Breadcrumb và Local Business.</li>
+                                    <li>Xây dựng mô hình Semantic Internal Link từ các cụm Blog bổ trợ sức mạnh cho trang Dịch vụ với tỷ lệ anchor text chuẩn xác.</li>
+                                    <li>Bơm Backlink PR báo tỉnh, textlink sidebar chất lượng cao và backlink forum cùng lĩnh vực.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Khủng hoảng & Giải pháp -->
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">4. Khủng hoảng phát sinh & Giải pháp khắc phục</h4>
+                        <div class="bg-red-50 border border-red-100 rounded-xl p-5 mb-5 shadow-sm">
+                            <div class="flex items-center gap-2 text-red-700 font-bold mb-3 text-lg">
+                                <i class="ph-fill ph-warning text-2xl"></i> Sự cố nghiêm trọng (Ngày 10/11/2025)
+                            </div>
+                            <p class="text-sm text-gray-700 mb-3">Trong đà tăng trưởng tốt, website bất ngờ đối mặt với khủng hoảng kép bị chơi xấu:</p>
+                            <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1 mb-4">
+                                <li><strong>Nhiễm mã độc:</strong> Source code bị tấn công.</li>
+                                <li><strong>Bơm "Traffic bẩn" (Bot Spam):</strong> Bị bắn lượng lớn traffic ảo liên tục, nhắm thẳng vào 1 Danh mục và các truy vấn cố định để tạo tín hiệu xấu.</li>
+                            </ul>
+                            <p class="text-sm font-semibold text-red-600 mb-0 bg-red-100 p-2 rounded px-3">Hậu quả: Website bị Google đánh dấu bất thường, dính án phạt (Penalty) làm rớt hạng hàng loạt từ khóa, đe dọa trực tiếp tiến độ KPI.</p>
+                        </div>
+
+                        <div class="bg-emerald-50 border border-emerald-100 rounded-xl p-5 shadow-sm">
+                            <div class="flex items-center gap-2 text-emerald-700 font-bold mb-4 text-lg">
+                                <i class="ph-fill ph-shield-check text-2xl"></i> Giải pháp xử lý khẩn cấp
+                            </div>
+                            <ul class="space-y-3 text-sm text-gray-700">
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-check-circle text-emerald-600 mt-0.5 text-lg"></i> <span><strong>Xử lý mã độc & Bảo mật:</strong> Phối hợp cùng đội ngũ Code bóc tách triệt để mã độc, thiết lập tường lửa (Cloudflare/Firewall) bảo vệ toàn diện hệ thống.</span></li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-check-circle text-emerald-600 mt-0.5 text-lg"></i> <span><strong>Chặn Traffic ảo:</strong> Trích xuất log file để nhận diện và block các dải IP spam. Thiết lập bộ lọc trên GA4 để loại trừ dữ liệu rác.</span></li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-check-circle text-emerald-600 mt-0.5 text-lg"></i> <span><strong>Gỡ phạt & Phục hồi Trust:</strong> Disavow (từ chối) các tín hiệu/backlink bẩn. Gửi yêu cầu lập chỉ mục lại qua Search Console, đẩy mạnh Entity và Social Traffic sạch để khôi phục uy tín với Google.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 5. Kết quả -->
+                    <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 md:p-10 text-white relative overflow-hidden shadow-xl mt-4 border border-gray-700">
+                        <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
+                        <h4 class="text-2xl font-bold mb-8 text-center relative z-10">5. Kết quả bứt phá</h4>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center relative z-10 mb-8">
+                            <div class="bg-white/5 p-5 rounded-xl backdrop-blur-sm border border-white/10 flex flex-col items-center justify-center">
+                                <div class="text-sm text-gray-300 font-medium uppercase tracking-wider mb-2">Vị trí Top 1 - 3</div>
+                                <div class="text-3xl font-black text-accent mb-2 flex items-center gap-3">
+                                    1% <i class="ph-bold ph-arrow-right text-gray-500 text-xl"></i> 30%
+                                </div>
+                            </div>
+                            <div class="bg-white/5 p-5 rounded-xl backdrop-blur-sm border border-white/10 flex flex-col items-center justify-center">
+                                <div class="text-sm text-gray-300 font-medium uppercase tracking-wider mb-2">Vị trí Top 10</div>
+                                <div class="text-3xl font-black text-accent mb-2 flex items-center gap-3">
+                                    16% <i class="ph-bold ph-arrow-right text-gray-500 text-xl"></i> 64%
+                                </div>
+                            </div>
+                            <div class="bg-white/5 p-5 rounded-xl backdrop-blur-sm border border-white/10 flex flex-col items-center justify-center">
+                                <div class="text-sm text-gray-300 font-medium uppercase tracking-wider mb-2">Từ khóa khó lọt Top 5</div>
+                                <div class="text-3xl font-black text-accent">64+ <span class="text-lg font-bold text-gray-400">từ khóa</span></div>
+                            </div>
+                            <div class="bg-white/5 p-5 rounded-xl backdrop-blur-sm border border-white/10 flex flex-col items-center justify-center">
+                                <div class="text-sm text-gray-300 font-medium uppercase tracking-wider mb-2">Organic Users</div>
+                                <div class="text-3xl font-black text-accent">2.850 <span class="text-lg font-bold text-gray-400">lượt/tháng</span></div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-accent/10 rounded-xl p-5 relative z-10 border border-accent/20">
+                            <p class="text-sm text-gray-100 leading-relaxed text-center">
+                                Ghi nhận <strong class="text-white text-base">64+ từ khóa lọt Top 5</strong>, trong đó bao gồm các nhóm từ khóa có độ cạnh tranh và tỷ lệ chuyển đổi rất cao mang lại doanh thu trực tiếp cho khách hàng như: <span class="text-accent-light font-semibold">xưởng in túi vải, in túi tote, may túi vải bố, in túi vải không dệt,...</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Bảo vệ Tây Bắc SG -->
+    <div id="modal-taybac" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-gray-900/80 backdrop-blur-sm modal-backdrop" onclick="closeModal('modal-taybac')"></div>
+        <div class="modal-content bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden relative z-10 shadow-2xl flex flex-col transform scale-95 transition-transform duration-300">
+            <div class="flex justify-between items-center p-5 md:p-6 border-b border-gray-100 bg-white/95 backdrop-blur z-20">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900">Chi tiết dự án: Bảo Vệ Tây Bắc SG</h3>
+                    <p class="text-sm text-gray-500 mt-1">Dịch vụ Bảo Vệ (Local) • Lead và triển khai</p>
+                </div>
+                <button onclick="closeModal('modal-taybac')" class="text-gray-500 hover:text-red-500 transition-colors bg-gray-100 hover:bg-red-50 p-2.5 rounded-full relative z-50">
+                    <i class="ph-bold ph-x text-xl pointer-events-none"></i>
+                </button>
+            </div>
+            <div class="overflow-y-auto p-5 md:p-8 space-y-8">
+                <div class="slider-container relative rounded-xl overflow-hidden h-64 md:h-[400px] bg-gray-100 group flex-shrink-0">
+                    <div class="slide absolute inset-0 transition-opacity duration-500 ease-in-out opacity-100 z-10">
+                        <img src="https://i.ibb.co/zWmFNXDK/z7693958461415-e938b36f41bcf722822066faa465dfe3.jpg" alt="Bảo vệ SG - Hình 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="slide absolute inset-0 transition-opacity duration-500 ease-in-out opacity-0 z-0">
+                        <img src="https://i.ibb.co/Kp67rc5j/z7693961118963-1b691410534aaf8d0303d5360a73e908.jpg" alt="Bảo vệ SG - Hình 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="slide absolute inset-0 transition-opacity duration-500 ease-in-out opacity-0 z-0">
+                        <img src="https://i.ibb.co/wtz8FFW/z7693965735266-199a54915695c8e694ac81d939d98be5.jpg" alt="Bảo vệ SG - Hình 3" class="w-full h-full object-cover">
+                    </div>
+                    <button class="prev-btn absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 hover:bg-accent text-white rounded-full flex items-center justify-center backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 z-20">
+                        <i class="ph-bold ph-caret-left text-xl pointer-events-none"></i>
+                    </button>
+                    <button class="next-btn absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 hover:bg-accent text-white rounded-full flex items-center justify-center backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 z-20">
+                        <i class="ph-bold ph-caret-right text-xl pointer-events-none"></i>
+                    </button>
+                </div>
+                
+                <div class="space-y-10">
+                    <!-- 1. Bối cảnh & Mục tiêu -->
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">1. Bối cảnh & Mục tiêu dự án</h4>
+                        <div class="bg-blue-50 border-l-4 border-accent p-5 rounded-r-lg mb-6">
+                            <p class="text-gray-700 leading-relaxed">
+                                Website <strong>baovengayvademtaybacsg.com</strong> là nền tảng trực tuyến của Chi nhánh Tây Bắc Sài Gòn, trực thuộc Công ty Cổ phần Thương mại Dịch vụ Bảo vệ Ngày & Đêm. Mục tiêu của dự án là thiết lập sự hiện diện trực tuyến vững chắc để tiếp cận khách hàng tại TP.HCM và các tỉnh lân cận.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="bg-white border border-gray-200 p-4 rounded-xl text-center shadow-sm">
+                                <i class="ph-fill ph-key text-2xl text-accent mb-2"></i>
+                                <p class="text-2xl font-bold text-gray-900">115</p>
+                                <p class="text-xs text-gray-500 uppercase mt-1 font-medium">Từ khóa triển khai</p>
+                            </div>
+                            <div class="bg-white border border-gray-200 p-4 rounded-xl text-center shadow-sm">
+                                <i class="ph-fill ph-target text-2xl text-accent mb-2"></i>
+                                <p class="text-2xl font-bold text-gray-900">85%</p>
+                                <p class="text-xs text-gray-500 uppercase mt-1 font-medium">KPI Top 5 (Duy trì)</p>
+                            </div>
+                            <div class="bg-white border border-gray-200 p-4 rounded-xl text-center shadow-sm">
+                                <i class="ph-fill ph-users text-2xl text-accent mb-2"></i>
+                                <p class="text-2xl font-bold text-gray-900">2.000+</p>
+                                <p class="text-xs text-gray-500 uppercase mt-1 font-medium">Organic Users/Tháng</p>
+                            </div>
+                            <div class="bg-white border border-gray-200 p-4 rounded-xl text-center shadow-sm">
+                                <i class="ph-fill ph-calendar text-2xl text-accent mb-2"></i>
+                                <p class="text-2xl font-bold text-gray-900">10</p>
+                                <p class="text-xs text-gray-500 uppercase mt-1 font-medium">Tháng triển khai</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Hiện trạng & Thách thức -->
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">2. Hiện trạng & Thách thức</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-y-4 gap-x-6">
+                            <div class="flex gap-3 items-start">
+                                <i class="ph-fill ph-warning-circle text-red-500 text-xl mt-0.5"></i>
+                                <div><strong class="text-gray-900 block mb-1">Đặc thù ngành cạnh tranh:</strong><p class="text-gray-600 text-sm">Phải đối đầu trực tiếp với những công ty dịch vụ bảo vệ lâu năm, có ngân sách Marketing lớn tại thị trường TP.HCM.</p></div>
+                            </div>
+                            <div class="flex gap-3 items-start">
+                                <i class="ph-fill ph-warning-circle text-red-500 text-xl mt-0.5"></i>
+                                <div><strong class="text-gray-900 block mb-1">Thách thức Local SEO:</strong><p class="text-gray-600 text-sm">Cần phải phủ sóng dịch vụ rộng khắp không chỉ ở nội thành mà còn vươn ra các khu vực lân cận (Hóc Môn, Củ Chi, Long An, Tây Ninh...).</p></div>
+                            </div>
+                            <div class="flex gap-3 items-start">
+                                <i class="ph-fill ph-warning-circle text-red-500 text-xl mt-0.5"></i>
+                                <div><strong class="text-gray-900 block mb-1">Website mới hoàn toàn:</strong><p class="text-gray-600 text-sm">Domain chưa có sức mạnh, hệ thống Entity yếu và chưa có bất kỳ tín hiệu nhận diện thương hiệu nào trên internet.</p></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Giải pháp SEO -->
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">3. Giải pháp & Phương pháp triển khai</h4>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
+                                <h5 class="font-bold text-accent mb-2 flex items-center gap-2 text-lg"><i class="ph-fill ph-tree-structure"></i> Quy hoạch Topical Map & Content Strategy</h5>
+                                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1.5">
+                                    <li>Không chỉ tập trung vào dịch vụ cốt lõi (Core Section).</li>
+                                    <li>Mở rộng phễu người dùng (Outer Section) bằng các cụm chủ đề vệ tinh như: Danh bạ Công an các quận, Kiến thức PCCC, An toàn điện...</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
+                                <h5 class="font-bold text-accent mb-2 flex items-center gap-2 text-lg"><i class="ph-fill ph-link"></i> Semantic SEO & Internal Link</h5>
+                                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1.5">
+                                    <li>Thiết lập mô hình Contextual Bridge (Cầu nối ngữ cảnh).</li>
+                                    <li>Điều hướng sức mạnh tự nhiên từ các bài Blog/Tin tức về các trang dịch vụ lõi (bảo vệ khu công nghiệp, tòa nhà, báo giá).</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
+                                <h5 class="font-bold text-accent mb-2 flex items-center gap-2 text-lg"><i class="ph-fill ph-map-pin"></i> Entity, Local SEO & Technical</h5>
+                                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1.5">
+                                    <li>Tối ưu Google My Business theo từng khu vực, triển khai Google Stack Brand, Social Stack và Syndication để tăng độ nhận diện và trust.</li>
+                                    <li>Xử lý lỗi index, dọn dẹp cannibalization, tăng tốc độ tải trang.</li>
+                                    <li>Cài đặt Schema (Organization, Local Business, FAQ) cho các trang trọng điểm.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Kết quả -->
+                    <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 md:p-10 text-white relative overflow-hidden shadow-xl mt-4 border border-gray-700">
+                        <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
+                        <h4 class="text-2xl font-bold mb-8 text-center relative z-10">4. Kết quả bứt phá</h4>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center relative z-10 mb-8">
+                            <div class="bg-white/5 p-5 rounded-xl backdrop-blur-sm border border-white/10 flex flex-col items-center justify-center">
+                                <div class="text-sm text-gray-300 font-medium uppercase tracking-wider mb-2">Organic Traffic</div>
+                                <div class="text-3xl font-black text-accent mb-2 flex items-center gap-3">
+                                    303 <i class="ph-bold ph-arrow-right text-gray-500 text-xl"></i> 7.100
+                                </div>
+                                <span class="text-xs text-green-400 font-semibold bg-green-400/10 px-2 py-1 rounded-full"><i class="ph-bold ph-trend-up"></i> ~ +2.243%</span>
+                            </div>
+                            <div class="bg-white/5 p-5 rounded-xl backdrop-blur-sm border border-white/10 flex flex-col items-center justify-center">
+                                <div class="text-sm text-gray-300 font-medium uppercase tracking-wider mb-2">Vị trí Top 5</div>
+                                <div class="text-3xl font-black text-accent mb-2 flex items-center gap-3">
+                                    4% <i class="ph-bold ph-arrow-right text-gray-500 text-xl"></i> 21%
+                                </div>
+                            </div>
+                            <div class="bg-white/5 p-5 rounded-xl backdrop-blur-sm border border-white/10 flex flex-col items-center justify-center">
+                                <div class="text-sm text-gray-300 font-medium uppercase tracking-wider mb-2">Vị trí Top 10</div>
+                                <div class="text-3xl font-black text-accent mb-2 flex items-center gap-3">
+                                    21% <i class="ph-bold ph-arrow-right text-gray-500 text-xl"></i> 53%
+                                </div>
+                            </div>
+                            <div class="bg-white/5 p-5 rounded-xl backdrop-blur-sm border border-white/10 flex flex-col items-center justify-center">
+                                <div class="text-sm text-gray-300 font-medium uppercase tracking-wider mb-2">Từ khóa lọt Top 5</div>
+                                <div class="text-3xl font-black text-accent">45+ <span class="text-lg font-bold text-gray-400">từ khóa</span></div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-accent/10 rounded-xl p-5 relative z-10 border border-accent/20">
+                            <p class="text-sm text-gray-100 leading-relaxed text-center">
+                                Ghi nhận <strong class="text-white text-base">45+ từ khóa lọt Top 5</strong>, trong đó bao gồm các nhóm từ khóa Local có độ cạnh tranh và tỷ lệ chuyển đổi rất cao như: <span class="text-accent-light font-semibold">dịch vụ bảo vệ chung cư, giá thuê bảo vệ, công ty bảo vệ tphcm, báo giá dịch vụ bảo vệ...</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: Bảo vệ Ngày & Đêm Toàn Quốc -->
+    <div id="modal-bvnvd" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-gray-900/80 backdrop-blur-sm modal-backdrop" onclick="closeModal('modal-bvnvd')"></div>
+        <div class="modal-content bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden relative z-10 shadow-2xl flex flex-col transform scale-95 transition-transform duration-300">
+            <div class="flex justify-between items-center p-5 md:p-6 border-b border-gray-100 bg-white/95 backdrop-blur z-20">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900">Chi tiết dự án: Bảo Vệ Ngày & Đêm</h3>
+                    <p class="text-sm text-gray-500 mt-1">Dịch vụ Bảo Vệ Toàn Quốc • Triển khai trực tiếp</p>
+                </div>
+                <button onclick="closeModal('modal-bvnvd')" class="text-gray-500 hover:text-red-500 transition-colors bg-gray-100 hover:bg-red-50 p-2.5 rounded-full relative z-50">
+                    <i class="ph-bold ph-x text-xl pointer-events-none"></i>
+                </button>
+            </div>
+            <div class="overflow-y-auto p-5 md:p-8 space-y-8">
+                <div class="slider-container relative rounded-xl overflow-hidden h-64 md:h-[400px] bg-gray-100 group flex-shrink-0">
+                    <div class="slide absolute inset-0 transition-opacity duration-500 ease-in-out opacity-100 z-10">
+                        <img src="https://i.ibb.co/8DSg0ndq/z7693986151479-9ab02724c61f7bf134ae57fda8d98ed8.jpg" alt="Bảo vệ SG - Hình 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="slide absolute inset-0 transition-opacity duration-500 ease-in-out opacity-0 z-0">
+                        <img src="https://i.ibb.co/2Y87fc8b/z7693992232206-d6df47e143d26aa6107fe21e2257f759.jpg" alt="Bảo vệ SG - Hình 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="slide absolute inset-0 transition-opacity duration-500 ease-in-out opacity-0 z-0">
+                        <img src="https://i.ibb.co/yBs0g3r5/z7693988049241-cde706198f56fd70fb5d41dab3d0e542.jpg" alt="Bảo vệ SG - Hình 3" class="w-full h-full object-cover">
+                    </div>
+                    <button class="prev-btn absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 hover:bg-accent text-white rounded-full flex items-center justify-center backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 z-20">
+                        <i class="ph-bold ph-caret-left text-xl pointer-events-none"></i>
+                    </button>
+                    <button class="next-btn absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 hover:bg-accent text-white rounded-full flex items-center justify-center backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 z-20">
+                        <i class="ph-bold ph-caret-right text-xl pointer-events-none"></i>
+                    </button>
+                </div>
+                
+                <div class="space-y-10">
+                    <!-- 1. Bối cảnh & Mục tiêu -->
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">1. Bối cảnh & Mục tiêu dự án</h4>
+                        <div class="bg-blue-50 border-l-4 border-accent p-5 rounded-r-lg mb-6">
+                            <p class="text-gray-700 leading-relaxed">
+                                <strong>Bảo Vệ Ngày & Đêm</strong> là một thương hiệu lâu năm và uy tín trong ngành dịch vụ an ninh. Bước vào giai đoạn 2025 - 2026, website đã sở hữu một nền tảng traffic và thứ hạng nhất định. Tuy nhiên, thách thức đặt ra không chỉ là "giữ vững phong độ" trước các đối thủ mạnh, mà còn phải mở rộng tệp khách hàng, thiết lập phễu chuyển đổi và đón đầu xu hướng tìm kiếm AI.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div class="bg-white border border-gray-200 p-4 rounded-xl text-center shadow-sm">
+                                <i class="ph-fill ph-trend-up text-2xl text-accent mb-2"></i>
+                                <p class="text-2xl font-bold text-gray-900">10.000+</p>
+                                <p class="text-xs text-gray-500 uppercase mt-1 font-medium">Traffic / Tháng</p>
+                            </div>
+                            <div class="bg-white border border-gray-200 p-4 rounded-xl text-center shadow-sm">
+                                <i class="ph-fill ph-target text-2xl text-accent mb-2"></i>
+                                <p class="text-2xl font-bold text-gray-900">60%</p>
+                                <p class="text-xs text-gray-500 uppercase mt-1 font-medium">KPI Lọt Top 3</p>
+                            </div>
+                            <div class="bg-white border border-gray-200 p-4 rounded-xl text-center shadow-sm">
+                                <i class="ph-fill ph-check-circle text-2xl text-accent mb-2"></i>
+                                <p class="text-2xl font-bold text-gray-900">85%</p>
+                                <p class="text-xs text-gray-500 uppercase mt-1 font-medium">KPI Lọt Top 5</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Hiện trạng & Thách thức -->
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">2. Hiện trạng & Thách thức</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
+                            <div class="flex gap-3 items-start">
+                                <i class="ph-fill ph-warning-circle text-red-500 text-xl mt-0.5"></i>
+                                <div><strong class="text-gray-900 block mb-1">Mở rộng tệp khách hàng:</strong><p class="text-gray-600 text-sm">Phủ sóng từ khóa dịch vụ tại tất cả các tỉnh thành/quận huyện trên toàn quốc.</p></div>
+                            </div>
+                            <div class="flex gap-3 items-start">
+                                <i class="ph-fill ph-warning-circle text-red-500 text-xl mt-0.5"></i>
+                                <div><strong class="text-gray-900 block mb-1">Xung đột từ khóa (Cannibalization):</strong><p class="text-gray-600 text-sm">Tình trạng "tự ăn thịt từ khóa" dẫn đến suy giảm traffic ở một số bài viết cũ.</p></div>
+                            </div>
+                            <div class="flex gap-3 items-start">
+                                <i class="ph-fill ph-warning-circle text-red-500 text-xl mt-0.5"></i>
+                                <div><strong class="text-gray-900 block mb-1">Thiếu luồng chuyển đổi:</strong><p class="text-gray-600 text-sm">Chưa có Conversion Path hiệu quả từ bài viết thông tin (Blog) về các trang dịch vụ lõi (Money pages).</p></div>
+                            </div>
+                            <div class="flex gap-3 items-start">
+                                <i class="ph-fill ph-warning-circle text-red-500 text-xl mt-0.5"></i>
+                                <div><strong class="text-gray-900 block mb-1">Sức ép Công nghệ AI:</strong><p class="text-gray-600 text-sm">Cần phải đón đầu xu hướng tìm kiếm AI (GEO/AIO) để duy trì lợi thế dài hạn.</p></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Giải pháp SEO -->
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">3. Chiến lược & Giải pháp triển khai</h4>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
+                                <h5 class="font-bold text-accent mb-2 flex items-center gap-2 text-lg"><i class="ph-fill ph-code"></i> GĐ1: Audit Technical & Tối ưu Trải nghiệm (UX/UI)</h5>
+                                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1.5">
+                                    <li><strong>Kỹ thuật:</strong> Rà soát và xử lý triệt để mã lỗi máy chủ (404, 5xx), tối ưu tốc độ tải trang (Core Web Vitals). Thiết lập Schema chuẩn (FAQ, Local Business, TOC).</li>
+                                    <li><strong>UX/UI:</strong> Chuẩn hóa kích thước Heading, font chữ, màu sắc và điều hướng Breadcrumbs để tăng time-on-site hiệu quả.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
+                                <h5 class="font-bold text-accent mb-2 flex items-center gap-2 text-lg"><i class="ph-fill ph-tree-structure"></i> GĐ2: Xây dựng Topical Authority & Cấu trúc Content</h5>
+                                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1.5">
+                                    <li><strong>Xử lý Cannibalization:</strong> Đánh giá toàn diện, gộp/tách/xóa bài viết "tự ăn thịt" và làm mới 100% nội dung mỏng để khôi phục traffic rớt hạng.</li>
+                                    <li><strong>Mở rộng Topical Map:</strong> Đào sâu chủ đề vệ tinh (Danh bạ công an, PCCC, Kỹ năng tự vệ, An toàn điện) củng cố E-E-A-T. Đẩy mạnh Local SEO thâu tóm thị phần ngách (Bình Dương, Ninh Thuận...).</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
+                                <h5 class="font-bold text-accent mb-2 flex items-center gap-2 text-lg"><i class="ph-fill ph-funnel"></i> GĐ3: Xây dựng Phễu chuyển đổi (Conversion Path)</h5>
+                                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1.5">
+                                    <li><strong>Internal Link Chiến lược:</strong> Phân bổ liên kết nội bộ theo mô hình Theme - Trust - Traffic để luân chuyển sức mạnh SEO.</li>
+                                    <li><strong>Điều hướng tự nhiên:</strong> Ứng dụng kỹ thuật Contextual Bridge (Cầu nối ngữ cảnh), lồng ghép CTA tinh tế từ Blog kiến thức về trang Dịch vụ lõi (Bảo vệ nhà máy, KCN).</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
+                                <h5 class="font-bold text-accent mb-2 flex items-center gap-2 text-lg"><i class="ph-fill ph-share-network"></i> GĐ4: Offpage, Entity & Đón đầu xu hướng GEO</h5>
+                                <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1.5">
+                                    <li><strong>Entity & Backlink:</strong> Tối ưu Local qua GMB, phát tán Social Syndication. Xây dựng mạng lưới Backlink chất lượng cao qua Báo PR và Guest Post cùng ngành (DR > 35).</li>
+                                    <li><strong>Tối ưu GEO:</strong> Chủ động tinh chỉnh cấu trúc bài viết, cung cấp dữ liệu minh bạch để thân thiện với các công cụ AI Search (ChatGPT, Perplexity).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Kết quả -->
+                    <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 md:p-10 text-white relative overflow-hidden shadow-xl mt-4 border border-gray-700">
+                        <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
+                        <h4 class="text-2xl font-bold mb-8 text-center relative z-10">4. Kết quả bứt phá</h4>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center relative z-10 mb-8">
+                            <div class="bg-white/5 p-5 rounded-xl backdrop-blur-sm border border-white/10 flex flex-col items-center justify-center">
+                                <div class="text-sm text-gray-300 font-medium uppercase tracking-wider mb-2">Organic Traffic (Semrush)</div>
+                                <div class="text-3xl font-black text-accent mb-2 flex items-center gap-3">
+                                    10.000 <i class="ph-bold ph-arrow-right text-gray-500 text-xl"></i> 26.600
+                                </div>
+                                <span class="text-xs text-green-400 font-semibold bg-green-400/10 px-2 py-1 rounded-full"><i class="ph-bold ph-trend-up"></i> ~ +166% lượt/tháng</span>
+                            </div>
+                            <div class="bg-white/5 p-5 rounded-xl backdrop-blur-sm border border-white/10 flex flex-col items-center justify-center">
+                                <div class="text-sm text-gray-300 font-medium uppercase tracking-wider mb-2">Từ khóa lọt Top 3</div>
+                                <div class="text-3xl font-black text-accent">120+ <span class="text-lg font-bold text-gray-400">từ khóa</span></div>
+                            </div>
+                            <div class="bg-white/5 p-5 rounded-xl backdrop-blur-sm border border-white/10 flex flex-col items-center justify-center">
+                                <div class="text-sm text-gray-300 font-medium uppercase tracking-wider mb-2">Cam kết Ranking Top 3</div>
+                                <div class="text-3xl font-black text-accent">Đạt 115% <span class="text-lg font-bold text-gray-400">KPI</span></div>
+                            </div>
+                            <div class="bg-white/5 p-5 rounded-xl backdrop-blur-sm border border-white/10 flex flex-col items-center justify-center">
+                                <div class="text-sm text-gray-300 font-medium uppercase tracking-wider mb-2">Cam kết Ranking Top 5</div>
+                                <div class="text-3xl font-black text-accent">Đạt 101% <span class="text-lg font-bold text-gray-400">KPI</span></div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-accent/10 rounded-xl p-5 relative z-10 border border-accent/20">
+                            <p class="text-sm text-gray-100 leading-relaxed text-center">
+                                Duy trì và vượt mục tiêu xếp hạng cam kết. Hơn <strong class="text-white text-base">120+ từ khóa lọt Top 3</strong> bao gồm các nhóm từ khóa có độ cạnh tranh và tỷ lệ chuyển đổi rất cao như: <span class="text-accent-light font-semibold">công ty bảo vệ tphcm, bảo vệ nhà máy, công ty bảo vệ đà nẵng, công ty bảo vệ tốt nhất tphcm...</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox / Image Zoom Modal (Fixed) -->
+    <div id="image-lightbox" class="fixed inset-0 z-[200] hidden flex items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300" onclick="closeLightbox()">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm cursor-zoom-out"></div>
+        <button type="button" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/70 hover:text-white transition-colors z-20 p-2 bg-black/20 hover:bg-black/40 rounded-full focus:outline-none" onclick="closeLightbox()">
+            <i class="ph-bold ph-x text-2xl pointer-events-none"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Phóng to hình ảnh" class="relative z-10 max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl transform scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+    </div>
+
+    <!-- Floating Contact Actions -->
+    <div class="fixed right-4 top-1/2 -translate-y-1/2 z-50">
+        <div class="flex flex-col gap-4 animate-float-cta">
+            <!-- Zalo -->
+            <div class="relative group">
+                <span class="absolute inset-0 rounded-full bg-[#0068FF] animate-ping opacity-60"></span>
+                <a href="https://zalo.me/0899490900" target="_blank" class="relative w-12 h-12 bg-[#0068FF] text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 hover:bg-blue-600 transition-all duration-300 z-10">
+                    <span class="font-bold text-xs tracking-wider">Zalo</span>
+                </a>
+                <span class="absolute right-16 top-1/2 -translate-y-1/2 bg-gray-900 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-md z-20">Chat Zalo</span>
+            </div>
+            
+            <!-- Phone -->
+            <div class="relative group">
+                <span class="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-60" style="animation-delay: 0.5s;"></span>
+                <a href="tel:0899490900" class="relative w-12 h-12 bg-emerald-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 hover:bg-emerald-600 transition-all duration-300 z-10">
+                    <i class="ph-fill ph-phone text-2xl"></i>
+                </a>
+                <span class="absolute right-16 top-1/2 -translate-y-1/2 bg-gray-900 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-md z-20">0899 490 900</span>
+            </div>
+            
+            <!-- Email -->
+            <div class="relative group">
+                <a href="mailto:loct2k3@gmail.com" class="relative w-12 h-12 bg-red-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 hover:bg-red-600 transition-all duration-300 z-10">
+                    <i class="ph-fill ph-envelope-simple text-2xl"></i>
+                </a>
+                <span class="absolute right-16 top-1/2 -translate-y-1/2 bg-gray-900 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-md z-20">Gửi Email</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-gray-900 text-white rounded-full shadow-xl flex items-center justify-center hover:bg-accent transition-all duration-300 opacity-0 translate-y-10 pointer-events-none focus:outline-none group" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+        <i class="ph-bold ph-arrow-up text-xl group-hover:-translate-y-1 transition-transform"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        // === 1. HÀM XỬ LÝ TOÀN CỤC (GLOBAL FUNCTIONS) ===
+        
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (!modal) return;
+            
+            modal.classList.remove('hidden');
+            void modal.offsetWidth; // Bắt trình duyệt render lại DOM
+            
+            modal.classList.remove('opacity-0');
+            const content = modal.querySelector('.modal-content');
+            if (content) content.classList.remove('scale-95');
+            
+            document.body.style.overflow = 'hidden';
+            initSlidersInContainer(modal);
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (!modal) return;
+            
+            modal.classList.add('opacity-0');
+            const content = modal.querySelector('.modal-content');
+            if (content) content.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        function openLightbox(src) {
+            const lightbox = document.getElementById('image-lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            if (!lightbox || !lightboxImg) return;
+            
+            lightboxImg.src = src;
+            lightbox.classList.remove('hidden');
+            void lightbox.offsetWidth; // Trigger reflow
+            lightbox.classList.remove('opacity-0');
+            lightboxImg.classList.remove('scale-95');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('image-lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            if (!lightbox) return;
+            
+            lightbox.classList.add('opacity-0');
+            if (lightboxImg) lightboxImg.classList.add('scale-95');
+            
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                if (lightboxImg) lightboxImg.src = '';
+            }, 300);
+        }
+
+        function initSlidersInContainer(container) {
+            const sliders = container.querySelectorAll('.slider-container');
+            sliders.forEach(slider => {
+                if (slider.dataset.initialized === 'true') return;
+
+                const slides = slider.querySelectorAll('.slide');
+                const nextBtn = slider.querySelector('.next-btn');
+                const prevBtn = slider.querySelector('.prev-btn');
+                let currentIndex = 0;
+
+                if (slides.length === 0) return;
+
+                let indicatorsContainer = slider.querySelector('.slider-indicators');
+                if (!indicatorsContainer) {
+                    indicatorsContainer = document.createElement('div');
+                    indicatorsContainer.className = 'slider-indicators absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-30';
+                    slider.appendChild(indicatorsContainer);
+                }
+                indicatorsContainer.innerHTML = '';
+
+                const dots = [];
+
+                const updateDots = (index) => {
+                    dots.forEach((dot, i) => {
+                        if (i === index) {
+                            dot.className = 'transition-all duration-300 rounded-full h-2 w-6 bg-accent';
+                        } else {
+                            dot.className = 'transition-all duration-300 rounded-full h-2 w-2 bg-white/60 hover:bg-white/90 backdrop-blur-sm';
+                        }
+                    });
+                };
+
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('button');
+                    dot.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        currentIndex = index;
+                        showSlide(currentIndex);
+                    });
+                    indicatorsContainer.appendChild(dot);
+                    dots.push(dot);
+                });
+
+                const showSlide = (index) => {
+                    slides.forEach((slide, i) => {
+                        if (i === index) {
+                            slide.classList.remove('opacity-0', 'z-0');
+                            slide.classList.add('opacity-100', 'z-10');
+                        } else {
+                            slide.classList.remove('opacity-100', 'z-10');
+                            slide.classList.add('opacity-0', 'z-0');
+                        }
+                    });
+                    updateDots(index);
+                };
+
+                showSlide(0);
+
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        currentIndex = (currentIndex + 1) % slides.length;
+                        showSlide(currentIndex);
+                    });
+                }
+
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                        showSlide(currentIndex);
+                    });
+                }
+                slider.dataset.initialized = 'true';
+            });
+        }
+
+        // === 2. EVENT LISTENERS KHI LOAD TRANG ===
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if (btn && menu) {
+                const icon = btn.querySelector('i');
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                    if (icon) {
+                        if (menu.classList.contains('hidden')) {
+                            icon.classList.remove('ph-x');
+                            icon.classList.add('ph-list');
+                        } else {
+                            icon.classList.remove('ph-list');
+                            icon.classList.add('ph-x');
+                        }
+                    }
+                });
+
+                menu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menu.classList.add('hidden');
+                        if (icon) {
+                            icon.classList.remove('ph-x');
+                            icon.classList.add('ph-list');
+                        }
+                    });
+                });
+            }
+
+            // Đã xóa phần Javascript chặn FormSubmit cũ để trình duyệt tự xử lý POST
+
+            // Gán tính năng Click phóng to ảnh (Lightbox) cho tất cả ảnh trong slider
+            const sliderImages = document.querySelectorAll('.slider-container .slide img');
+            sliderImages.forEach(img => {
+                img.classList.add('cursor-zoom-in'); 
+                img.addEventListener('click', (e) => {
+                    e.stopPropagation(); 
+                    openLightbox(img.src);
+                });
+            });
+
+            // ESC Key to close Modals & Lightbox
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    const lightbox = document.getElementById('image-lightbox');
+                    if (lightbox && !lightbox.classList.contains('hidden')) {
+                        closeLightbox();
+                    } else {
+                        // Đóng modal đang mở
+                        const modals = ['modal-maymay', 'modal-taybac', 'modal-bvnvd'];
+                        modals.forEach(id => {
+                            const m = document.getElementById(id);
+                            if(m && !m.classList.contains('hidden')) {
+                                closeModal(id);
+                            }
+                        });
+                    }
+                }
+            });
+            
+            // Navbar blur on scroll & Back to Top Visibility
+            const backToTopBtn = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                const nav = document.querySelector('nav');
+                if (nav) {
+                    if (window.scrollY > 20) {
+                        nav.classList.add('shadow-sm');
+                        nav.classList.replace('bg-white/80', 'bg-white/95');
+                    } else {
+                        nav.classList.remove('shadow-sm');
+                        nav.classList.replace('bg-white/95', 'bg-white/80');
+                    }
+                }
+                
+                // Hiển thị/Ẩn nút Back to Top
+                if (backToTopBtn) {
+                    if (window.scrollY > 400) {
+                        backToTopBtn.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+                        backToTopBtn.classList.add('opacity-100', 'translate-y-0');
+                    } else {
+                        backToTopBtn.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+                        backToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
